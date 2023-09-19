@@ -1,4 +1,9 @@
 import './App.css';
+import Navbar from './Navbar';//all the components are stocked in the App Component
+import Home from './Home';
+import NewBlog from './NewBlog';
+import Actuality from './Actuality';
+
 
 function App() {
  const title = 'Welcome to the new blog';//string and number are aloud
@@ -9,11 +14,11 @@ function App() {
 
  return (
     <div className="App">
+      <Navbar/>
       <div className='content'>
-        <h1>{ title }</h1>
-        <p>Liked {likes} times</p>
-        <p> {[1,2,3,4,5]} </p>
-        <a href={link} >Google Website</a>
+      <Home/>
+      <NewBlog/>
+      <Actuality/>
       </div>
     </div>
   );
