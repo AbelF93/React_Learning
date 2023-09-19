@@ -1,4 +1,4 @@
-import './App.css';
+
 import Navbar from './Navbar';//all the components are stocked in the App Component
 import Home from './Home';
 import NewBlog from './NewBlog';
