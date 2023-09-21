@@ -1,4 +1,5 @@
 import { useState } from "react";// import useState to describe a value and call a setValue to modify it
+import BlogList from "./BlogList";
 
 const Home = () => {// creating a blog template, with specific id.
   const [blogs, setBlogs] = useState([
@@ -6,17 +7,16 @@ const Home = () => {// creating a blog template, with specific id.
     {title:'Welcome party', body: 'lorem ipsum...', author: 'françis', id: 2},
     {title:'Web dev top tips', body: 'lorem ipsum...', author: 'marc', id: 3}
   ]);
-    return (// return automaticaly through Map method.
-        <div className="home">
-            {blogs.map((blog) => (
-                //using the map method, it's necessary to add a key attribute, here we'll select it's id
-                <div className="blog-preview" key={blog.id}>
-                    <h2>{blog.title}</h2>
-                    <p>{blog.body}</p>
-                    <p> Written by {blog.author} </p>
 
-                </div>
-            ))}
+  const handleDelete = (id) => {
+    const newBlogs= blogs.filter(blog => blog.id !== id)
+    setBlogs(newBlogs);
+}
+
+    return (// return automaticaly the specific info into the Blog List
+        <div className="home">
+            <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete} />
+            <BlogList blogs={blogs.filter((blog) => blog.author === 'mario' )} title="Mario's Blogs"/>
         </div>
       );
 }
